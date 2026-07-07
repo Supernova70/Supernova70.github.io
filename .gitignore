@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+docs/.vitepress/dist/
+docs/.vitepress/cache/
+.astro/
+
+# logs
+*.log
+dev-server.out.log
+dev-server.err.log
+
+# stray scaffold artifact (botched `npm create astro --typescript` run)
+--typescript/
+
+# verification screenshots (scratch)
+.shots/
+
+# internal planning docs — kept local, never published (contain personal notes)
+implementation-plan.md
+plan.md
+design.md
+portfolio-site-spec.md
+todo.md
+
+# os / editor
+.DS_Store
+Thumbs.db

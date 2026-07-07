@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Supernova70 logo">
+  <!-- Supernova starburst mark. Placeholder — swap for your own if you generate one. -->
+  <defs>
+    <radialGradient id="nova" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7ee787"/>
+      <stop offset="55%" stop-color="#3fb950"/>
+      <stop offset="100%" stop-color="#2ea043"/>
+    </radialGradient>
+  </defs>
+  <!-- soft glow halo -->
+  <circle cx="32" cy="32" r="21" fill="#2ea043" opacity="0.12"/>
+  <!-- 4 long + 4 short ray nova burst -->
+  <polygon fill="url(#nova)"
+    points="32,2 34.68,25.53 44.02,19.98 38.47,29.32 62,32 38.47,34.68 44.02,44.02 34.68,38.47 32,62 29.32,38.47 19.98,44.02 25.53,34.68 2,32 25.53,29.32 19.98,19.98 29.32,25.53"/>
+  <!-- bright core -->
+  <circle cx="32" cy="32" r="4.5" fill="#d8ffe0"/>
+</svg>
