@@ -32,9 +32,31 @@ export default defineConfig({
     sidebar: {
       '/writeups/': [
         {
-          text: 'Writeups',
+          text: 'Labs',
+          items: [
+            {
+              text: 'HackTheBox',
+              link: '/writeups/htb',
+              collapsed: true,
+              items: [
+                { text: 'Appointment', link: '/writeups/htb-appointment' },
+                { text: 'Crocodile', link: '/writeups/htb-crocodile' },
+                { text: 'Funnel', link: '/writeups/htb-funnel' },
+                { text: 'Mongod', link: '/writeups/htb-mongod' },
+                { text: 'Synced', link: '/writeups/htb-synced' },
+              ],
+            },
+          ],
+        },
+        {
+          text: 'CTF',
           items: [
             { text: 'PicoCTF — Binary Exploitation', link: '/writeups/picoctf-binexp' },
+          ],
+        },
+        {
+          text: 'Reverse Engineering',
+          items: [
             { text: 'Hero RideGuide BLE RE', link: '/writeups/hero-rideguide-ble' },
           ],
         },

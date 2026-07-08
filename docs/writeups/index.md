@@ -5,6 +5,14 @@ description: CTF writeups, RE notes, and security research.
 
 # Writeups
 
+## Labs
+
+<Grid>
+  <Card title="HackTheBox" href="/writeups/htb">
+    Starting Point and beyond — credential exposure, misconfig, and service pivots.
+  </Card>
+</Grid>
+
 ## CTF
 
 <Grid>
