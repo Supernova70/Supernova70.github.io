@@ -21,14 +21,15 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/logo.svg',
+
     nav: [
       { text: 'Writeups', link: '/writeups/' },
-      { text: 'Blog', link: '/blog/' },
+      { text: 'Blog',     link: '/blog/' },
       { text: 'Projects', link: '/projects/' },
-      { text: 'About', link: '/about' },
+      { text: 'About',    link: '/about' },
     ],
-    // Sidebars: auto-grouped per section. Add entries as content grows,
-    // or use a sidebar generator plugin later (§11).
+
+    // Sidebars: auto-grouped per section.
     sidebar: {
       '/writeups/': [
         {
@@ -37,13 +38,23 @@ export default defineConfig({
             {
               text: 'HackTheBox',
               link: '/writeups/htb',
-              collapsed: true,
+              collapsed: false,
               items: [
                 { text: 'Appointment', link: '/writeups/htb-appointment' },
-                { text: 'Crocodile', link: '/writeups/htb-crocodile' },
-                { text: 'Funnel', link: '/writeups/htb-funnel' },
-                { text: 'Mongod', link: '/writeups/htb-mongod' },
-                { text: 'Synced', link: '/writeups/htb-synced' },
+                { text: 'Crocodile',   link: '/writeups/htb-crocodile' },
+                { text: 'Funnel',      link: '/writeups/htb-funnel' },
+                { text: 'Mongod',      link: '/writeups/htb-mongod' },
+                { text: 'Pennyworth',  link: '/writeups/htb-pennyworth' },
+                { text: 'Synced',      link: '/writeups/htb-synced' },
+                { text: 'Tactics',     link: '/writeups/htb-tactics' },
+              ],
+            },
+            {
+              text: 'TryHackMe',
+              link: '/writeups/thm',
+              collapsed: false,
+              items: [
+                { text: 'Lian Yu', link: '/writeups/thm-lian-yu' },
               ],
             },
           ],
@@ -65,7 +76,7 @@ export default defineConfig({
         {
           text: 'Blog',
           items: [
-            { text: 'Reverse-engineering BLE: First Notes', link: '/blog/reverse-engineering-ble' },
+            { text: 'Making a Motorcycle Draw My Arrows', link: '/blog/reverse-engineering-ble' },
           ],
         },
       ],
@@ -73,22 +84,50 @@ export default defineConfig({
         {
           text: 'Projects',
           items: [
-            { text: 'Hero RideGuide BLE RE', link: '/projects/hero-rideguide-re' },
-            { text: 'PhishDetect Scanner', link: '/projects/phishdetect' },
+            { text: 'Hero RideGuide BLE RE',    link: '/projects/hero-rideguide-re' },
+            { text: 'PhishDetect Scanner',       link: '/projects/phishdetect' },
           ],
         },
       ],
     },
+
+    // Outline depth and label
+    outline: { level: [2, 3], label: 'On this page' },
+
+    // Last-updated display
+    lastUpdated: {
+      text: 'Last updated',
+      formatOptions: {
+        dateStyle: 'medium',
+        timeStyle: 'short',
+      },
+    },
+
+    // Prev/next labels on doc pages
+    docFooter: {
+      prev: '← Previous',
+      next: 'Next →',
+    },
+
     search: { provider: 'local' },
+
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Supernova70' },
-      // LinkedIn removed — the old URL pointed to someone else's profile.
+      // LinkedIn removed — old URL pointed to someone else's profile.
       // Add back once you have your own: { icon: 'linkedin', link: 'https://www.linkedin.com/in/<you>/' },
     ],
+
     editLink: {
       pattern: 'https://github.com/Supernova70/Supernova70.github.io/edit/main/docs/:path',
       text: 'Edit this page on GitHub',
     },
-    outline: [2, 3],
+
+    footer: {
+      message: 'Security research & reverse engineering notes',
+      copyright: '© 2026 Supernova70',
+    },
+
+    // Mark external links with an icon (default VitePress feature)
+    externalLinkIcon: true,
   },
 })

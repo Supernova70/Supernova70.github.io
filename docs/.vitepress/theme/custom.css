@@ -1,11 +1,20 @@
 :root {
-  /* Brand accent — cybersecurity green. Swap to blue #3b82f6 or amber if preferred. */
-  --vp-c-brand-1: #2ea043;
-  --vp-c-brand-2: #3fb950;
-  --vp-c-brand-3: #238636;
-  --vp-c-brand-soft: rgba(46, 160, 67, 0.14);
+  /* Brand accent — cybersecurity green.
+     Light mode needs darker shades: bright GitHub greens fail contrast on white. */
+  --vp-c-brand-1: #1a7f37;
+  --vp-c-brand-2: #116329;
+  --vp-c-brand-3: #2da44e;
+  --vp-c-brand-soft: rgba(26, 127, 55, 0.14);
 
   --card-radius: 14px;
+}
+
+.dark {
+  /* brighter greens are correct on dark backgrounds */
+  --vp-c-brand-1: #3fb950;
+  --vp-c-brand-2: #56d364;
+  --vp-c-brand-3: #2ea043;
+  --vp-c-brand-soft: rgba(63, 185, 80, 0.16);
 }
 
 /* faint dot-grid workspace texture (optional signature) */
@@ -55,7 +64,7 @@
 }
 .vp-card {
   display: block; height: 100%;
-  border: 2px solid var(--vp-c-divider); border-radius: var(--card-radius);
+  border: 1px solid var(--vp-c-divider); border-radius: var(--card-radius);
   background: var(--vp-c-bg-soft);
   transition: border-color .25s; text-decoration: none !important; color: inherit !important;
 }
@@ -63,3 +72,225 @@
 .vp-card-inner { padding: 20px; }
 .vp-card-title { margin: 0 0 8px; font-size: 16px; font-weight: 600; border: 0; }
 .vp-card-details { margin: 0; font-size: 14px; color: var(--vp-c-text-2); line-height: 1.5; }
+
+/* badge (e.g. "Very Easy", "HTB") */
+.vp-card-badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-2);
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 25%, transparent);
+}
+
+/* footer strip inside a card (date + tags + repo link) */
+.vp-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--vp-c-divider);
+}
+.vp-card-date {
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+  margin-right: 2px;
+}
+.vp-card-repo {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+}
+.vp-card-repo:hover { text-decoration: underline; }
+
+/* ============================================================
+   PAGE META — date + tag pills (rendered by PageMeta.vue)
+   ============================================================ */
+.page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 28px;
+  /* sits right under the h1 — clear the default h1 bottom-margin gap */
+  margin-top: -8px;
+}
+
+.page-date {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--vp-c-text-2);
+  letter-spacing: 0.01em;
+}
+
+.page-repo-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 12px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 35%, transparent);
+  background: var(--vp-c-brand-soft);
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.page-repo-btn:hover {
+  background: color-mix(in srgb, var(--vp-c-brand-1) 22%, transparent);
+  border-color: var(--vp-c-brand-1);
+}
+
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: lowercase;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-2);
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 25%, transparent);
+  line-height: 20px;
+}
+
+/* ============================================================
+   HEADING HIERARCHY — clearer visual distinction h1 / h2 / h3
+   ============================================================ */
+
+/* h1: already styled by VitePress; just ensure weight is max */
+.vp-doc h1 {
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  border-bottom: none;    /* remove the flat divider — heading colour contrast is enough */
+}
+
+/* h2: accent left-border + slightly larger than default */
+.vp-doc h2 {
+  font-size: 1.375rem;    /* 22px @ 16px base */
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-top: 2.5rem;
+  padding-top: 0;
+  border-top: none;       /* VitePress default adds a border-top; remove it … */
+  border-bottom: none;
+  padding-left: 14px;
+  border-left: 3px solid var(--vp-c-brand-1);   /* … replace with the accent bar */
+}
+
+/* h3: muted, lighter weight — clearly subordinate to h2 */
+.vp-doc h3 {
+  font-size: 1.0625rem;   /* 17px */
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  letter-spacing: 0;
+  margin-top: 1.75rem;
+}
+
+/* h4 and below: muted — subordinate to h3 without colour noise */
+.vp-doc h4 {
+  font-size: 0.9375rem;   /* 15px */
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  margin-top: 1.5rem;
+}
+
+/* ============================================================
+   CONTENT BREATHING ROOM
+   ============================================================ */
+
+/* More generous paragraph spacing inside doc pages */
+.vp-doc p {
+  line-height: 1.75;
+  margin-top: 0.875rem;
+  margin-bottom: 0.875rem;
+}
+
+/* Code blocks: neutral hairline border */
+.vp-doc div[class*="language-"] {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+}
+
+/* Inline code: neutral — green everywhere made body text noisy */
+.vp-doc :not(pre) > code {
+  background: var(--vp-c-default-soft);
+  color: var(--vp-c-text-1);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.875em;
+}
+
+/* blockquote: simple left border rather than the default box */
+.vp-doc blockquote {
+  border-left: 3px solid var(--vp-c-divider);
+  padding: 0 0 0 18px;
+  margin: 1.25rem 0;
+  color: var(--vp-c-text-2);
+  font-style: italic;
+  background: none;
+}
+
+/* Tables: tighter, with accent header */
+.vp-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 1.5rem 0;
+}
+.vp-doc th {
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+  padding: 8px 14px;
+  border: 1px solid var(--vp-c-divider);
+  text-align: left;
+}
+.vp-doc td {
+  padding: 7px 14px;
+  border: 1px solid var(--vp-c-divider);
+  vertical-align: top;
+}
+.vp-doc tr:nth-child(even) td {
+  background: var(--vp-c-bg-soft);
+}
+
+/* ============================================================
+   SIDEBAR REFINEMENTS
+   ============================================================ */
+
+/* Active link: bold + brand colour (already has colour from default theme;
+   adding font-weight makes it clearly stand out from neighbours) */
+.VPSidebarItem.is-active > .item .link {
+  font-weight: 700 !important;
+}
+
+/* Section labels (non-link group headers) */
+.VPSidebarItem.level-0 > .item .text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+  padding-top: 4px;
+}
+
+/* Slightly more breathing room between sidebar groups */
+.VPSidebar .group + .group {
+  margin-top: 12px;
+}
