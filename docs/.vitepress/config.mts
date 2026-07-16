@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'Supernova70',
-  description: 'Cybersecurity · Reverse Engineering · CTFs',
+  description: 'Cybersecurity · Learning Reverse Engineering · CTFs',
   lang: 'en-US',
 
   // Served from the ROOT ('/') — correct for a custom domain (yourdomain.com/)

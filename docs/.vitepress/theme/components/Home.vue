@@ -10,7 +10,7 @@ const { site } = useData()
     <section class="hero">
       <img class="hero-logo" :src="withBase('/logo.svg')" alt="logo" />
       <h1 class="hero-title">{{ site.title }}</h1>
-      <p class="hero-tagline">Cybersecurity · Reverse Engineering · CTFs</p>
+      <p class="hero-tagline">Cybersecurity · Learning Reverse Engineering · CTFs</p>
     </section>
 
     <section class="home-grid">
